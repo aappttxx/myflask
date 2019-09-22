@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{ user.username}}'s Watchlist</title>
+    </head>
+
+    <body>
+        <a href="#">&larr; Return</a>
+        <h2>{{user.username}}</h2>
+        {% if user.bio %}
+        <li>{{user.bio}}</li>
+        {% else %}
+        <i>This user has not provided a bio.</i>
+        {% endif %}
+        {# 下面是电影清单（这是注释）#}
+        <h5>{{ user.username}}' Watchlist ({{ movies|length}})</h5>
+        <ul>
+            {% for movie in movies %}
+            <li>{{ movie.name}} - {{ movie.year }}</li>
+            {% endfor %}
+        </ul>
+        {{foo|musical}}
+        {{bar()}}
+        {% if foo is baz %}
+        {{foo}}
+        {% endif %}
+
+        {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+        {% endfor %}
+    </body>
+
+</html>
